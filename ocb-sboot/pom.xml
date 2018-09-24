@@ -42,12 +42,14 @@
 			<groupId>org.kie</groupId>
 			<artifactId>kie-ci</artifactId>
 			<version>${kie.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.drools/drools-decisiontables -->
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-decisiontables</artifactId>
 			<version>${kie.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 
@@ -73,6 +75,7 @@
 				</archive>
 			</configuration>
 		</plugin>
+		
 		</plugins>
 	</build>
 
