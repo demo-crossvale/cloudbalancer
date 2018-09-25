@@ -12,7 +12,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<kie.version>6.1.0.Final</kie.version>
+		<kie.version>7.10.0.Final</kie.version>
 	</properties>
 
 	<dependencyManagement>
@@ -42,14 +42,14 @@
 			<groupId>org.kie</groupId>
 			<artifactId>kie-ci</artifactId>
 			<version>${kie.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.drools/drools-decisiontables -->
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-decisiontables</artifactId>
 			<version>${kie.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.kie</groupId>
