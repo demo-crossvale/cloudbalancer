@@ -1,3 +1,10 @@
 target/
 .DS_Store
+.metadata/
+
+## Eclipse
 .project
+.classpath
+.settings/
+
+
