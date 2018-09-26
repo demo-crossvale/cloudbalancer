@@ -12,20 +12,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<kie.version>6.0.0.Final</kie.version>
+		<kie.version>7.2.0.Final</kie.version>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>io.spring.platform</groupId>
-				<artifactId>platform-bom</artifactId>
-				<version>1.1.1.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+	</parent>
 
 	<dependencies>
 		<dependency>
@@ -33,31 +27,19 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-ci</artifactId>
 			<version>${kie.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-api</artifactId>
-			<version>${kie.version}</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.kie</groupId> <artifactId>kie-api</artifactId> 
+			<version>${kie.version}</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-decisiontables</artifactId>
 			<version>${kie.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
@@ -67,21 +49,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
-				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>com.SpringBootApp</mainClass>
-						</manifest>
-					</archive>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+			<!-- <plugin> Build an executable JAR <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-jar-plugin</artifactId> <version>2.4</version> <configuration> 
+				<archive> <manifest> <mainClass>com.SpringBootApp</mainClass> </manifest> 
+				</archive> </configuration> </plugin> -->
 
 		</plugins>
 	</build>
