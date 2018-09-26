@@ -8,7 +8,7 @@
 	<artifactId>dm-ocb</artifactId>
 	<version>3.0.0</version>
 	<name>dm-ocb</name>
-	<description>Rules based CloudBalancer on Red Hat Decision Manager</description>
+	<description>Rules based CloudBalancer on Red Hat Decision Manager 7.0.1</description>
 	<repositories>
 		<repository>
 			<id>guvnor-m2-repo</id>
@@ -18,7 +18,7 @@
 	</repositories>
 
 	<dependencies>
-		<!-- add this dependency if there are Model Classes present (created by 
+		<!-- add this dependency if there are Model Classes present (created by
 			Data Modeler in the business-central) -->
 		<dependency>
 			<groupId>org.kie</groupId>
