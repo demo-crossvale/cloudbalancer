@@ -12,7 +12,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<kie.version>7.10.0.Final</kie.version>
+		<kie.version>6.1.0.Final</kie.version>
 	</properties>
 
 	<dependencyManagement>
@@ -33,11 +33,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.kie</groupId>
@@ -49,6 +51,13 @@
 			<groupId>org.kie</groupId>
 			<artifactId>kie-api</artifactId>
 			<version>${kie.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontables</artifactId>
+			<version>${kie.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
