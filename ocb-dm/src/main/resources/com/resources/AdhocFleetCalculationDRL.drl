@@ -1,0 +1,39 @@
+package com.resources;
+
+import com.model.Fleet;
+
+rule "Row 1 AdHocFleetCalculation"
+	salience 8
+	date-effective "30-Aug-2018"
+	date-expires "30-Sep-2018"
+	dialect "mvel"
+	when
+		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , filter == false )
+	then
+	    modify(fleetObject){setTargetCapacity(1 + fleetObject.getTargetCapacity())};
+		System.out.println("Fired Ad Hoc");
+end
+
+rule "Row 2 AdHocFleetCalculation"
+	salience 8
+	date-effective "10-Aug-2018"
+	date-expires "30-Aug-2018"
+	dialect "mvel"
+	when
+		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , filter == false )
+	then
+		modify(fleetObject){setTargetCapacity(2 + fleetObject.getTargetCapacity())};
+		System.out.println("Fired Ad Hoc");
+end
+
+rule "Row 3 AdHocFleetCalculation"
+	salience 8
+	date-effective "30-Sep-2018"
+	date-expires "30-Nov-2018"
+	dialect "mvel"
+	when
+		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , filter == false )
+	then
+		modify(fleetObject){setTargetCapacity(3 + fleetObject.getTargetCapacity())};
+		System.out.println("Fired Ad Hoc");
+end
