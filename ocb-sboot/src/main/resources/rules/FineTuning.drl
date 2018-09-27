@@ -28,3 +28,16 @@ rule "gradualScaleDown"
 		}
 		System.out.println("Gradual scale down by 1");
 end
+
+rule "maintainPeakFleet"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "finetune"
+	when
+		f : Fleet( isUnderload != true, isOverload != true, filter == false, targetCapacity < (f.getCurrentCapacity()) )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity() )
+		}
+		System.out.println("System at peak, no scaling needed");
+end
