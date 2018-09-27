@@ -36,7 +36,9 @@ public class FleetController {
 	@ResponseBody
 	public Fleet getFleetByPost(@RequestBody Fleet bodyFleet) {
 		Fleet fleet = new Fleet();
+		System.out.println("Start: cloudbalancer!");
 		fleet = fleetService.getFleet(bodyFleet);
+		System.out.println("Stop: cloudbalancer!");
 		return fleet;
 	}
 

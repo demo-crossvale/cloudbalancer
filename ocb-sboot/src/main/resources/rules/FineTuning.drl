@@ -1,0 +1,30 @@
+//created on: Sep 27, 2018
+package com.resources;
+
+import com.model.Fleet;
+
+rule "gradualScaleUp"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "finetune"
+	when
+		f : Fleet( isOverload == true, filter == false, targetCapacity < (f.getCurrentCapacity()) )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity()+1 )
+		}
+		System.out.println("Gradual scale up by 1");
+end
+
+rule "gradualScaleDown"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "finetune"
+	when
+		f : Fleet( isUnderload == true, filter == false, targetCapacity < (f.getCurrentCapacity()) )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity()-1 )
+		}
+		System.out.println("Gradual scale down by 1");
+end

@@ -1,5 +1,5 @@
 //created on: Sep 27, 2018
-package com.resources
+package com.resources;
 
 import com.model.Fleet;
 
@@ -34,7 +34,7 @@ rule "CheckUnderload"
 	no-loop true
 	ruleflow-group "initialize"
 	when
-		f : Fleet( cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 )
+		f : Fleet( cpuLoad < 25, networkLoad < 25, memoryLoad < 25 )
 	then
 		modify( f ) {
 				setIsUnderload( true )
