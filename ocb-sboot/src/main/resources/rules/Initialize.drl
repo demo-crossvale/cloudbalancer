@@ -1,0 +1,43 @@
+//created on: Sep 27, 2018
+package com.resources
+
+import com.model.Fleet;
+
+rule "InitializeTarget"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "initialize"
+	when
+		f : Fleet( targetCapacity != ( f.getCurrentCapacity() ) )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity() )
+		}
+		System.out.println("Initialized Target Capacity");
+end
+
+rule "CheckOverload"
+    dialect "mvel"
+	no-loop true
+	ruleflow-group "initialize"
+	when
+		f : Fleet( cpuLoad > 75 || networkLoad > 75 || memoryLoad > 75 )
+	then
+		modify( f ) {
+				setIsOverload( true )
+		}
+		System.out.println("Overloaded instance!");
+end
+
+rule "CheckUnderload"
+    dialect "mvel"
+	no-loop true
+	ruleflow-group "initialize"
+	when
+		f : Fleet( cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 )
+	then
+		modify( f ) {
+				setIsUnderload( true )
+		}
+		System.out.println("Underloaded instance!");
+end

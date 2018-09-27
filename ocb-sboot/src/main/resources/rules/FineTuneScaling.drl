@@ -1,0 +1,29 @@
+package com.resources;
+
+import com.model.Fleet;
+
+rule "gradual scale up"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "finetune"
+	when
+		f : Fleet( isOverload==true, currentCapacity > targetCapacity )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity()+1 )
+		}
+		System.out.println("SanityCheck System Overloaded");
+end
+
+rule "gradual scale down"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "finetune"
+	when
+		f : Fleet( isUnderload==true, currentCapacity > targetCapacity )
+	then
+		modify( f ) {
+				setTargetCapacity( f.getCurrentCapacity()-1 )
+		}
+		System.out.println("SanityCheck System Underloaded");
+end

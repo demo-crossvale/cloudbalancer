@@ -11,6 +11,10 @@ import com.model.Fleet;
 public class FleetService {
 
 	private final KieContainer kieContainer;
+
+	private final String[] GROUPS = {"initialize","override","default",
+										"adhoc","overloaded","underloaded",
+										"finetune","upperlimit","lowerlimit"};
 	
 	@Autowired
 	public FleetService(KieContainer kieContainer) {
@@ -20,7 +24,10 @@ public class FleetService {
 	public Fleet getFleet(Fleet fleet) {
 		KieSession kieSession = kieContainer.newKieSession("rulesSession");
 		kieSession.insert(fleet);
-		kieSession.fireAllRules();
+		for(String group: GROUPS) {
+			kieSession.getAgenda().getAgendaGroup(group).setFocus();
+			kieSession.fireAllRules();
+		}
 		kieSession.dispose();
 		return fleet;
 	}

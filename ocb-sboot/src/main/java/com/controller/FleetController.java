@@ -24,6 +24,7 @@ public class FleetController {
 	@RequestMapping(value="/getFleetById", method= RequestMethod.GET, produces= "application/json")
 	public Fleet getFleetById(@RequestParam(required=true) String id) {
 		Fleet fleet = new Fleet();
+		System.out.println("Called GET method, hardcoded data");
 		fleet.setId(id);
 		fleet.setTargetCapacity(0);
 		fleet.setFilter(false);

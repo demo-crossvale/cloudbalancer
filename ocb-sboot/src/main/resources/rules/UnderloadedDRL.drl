@@ -4,79 +4,73 @@ import com.model.Fleet;
 
 rule "Row 1 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-e297b726-fa8b-490e-acdd-2b6c2420549a" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-e297b726-fa8b-490e-acdd-2b6c2420549a" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
 rule "Row 2 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-1ff95794-9d1e-4c86-8a05-d4e1de6395cb" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
 rule "Row 3 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-5f3d1af5-fc2c-41b0-95e2-3b895e8adc72" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-5f3d1af5-fc2c-41b0-95e2-3b895e8adc72" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
 rule "Row 4 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-4aeccf6d-3074-45d8-b7ae-6cb4bdeda4f7" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-4aeccf6d-3074-45d8-b7ae-6cb4bdeda4f7" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
 rule "Row 5 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-934ec6cc-2731-4802-b208-f04a6c708a99" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-934ec6cc-2731-4802-b208-f04a6c708a99" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
 rule "Row 6 UnderLoaded"
 	no-loop true
-	salience 6
+	ruleflow-group "underloaded"
 	dialect "mvel"
 	when
-		fleetObject : Fleet( id == "sfr-6058b2d4-6658-4d54-abe0-0b250253c171" ,
-		                     cpuLoad < 25 && networkLoad < 25 && memoryLoad < 25 ,
+		fleetObject : Fleet( id == "sfr-6058b2d4-6658-4d54-abe0-0b250253c171" , isUnderload==true ,
 		                     targetCapacity > (fleetObject.getCurrentCapacity()-1), filter == false )
 	then
-		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)};
+		modify(fleetObject){setTargetCapacity(fleetObject.getTargetCapacity()-1)}
 		System.out.println("Fired UnderLoaded");
 end
 
