@@ -26,7 +26,7 @@ rule "CheckOverload"
 		modify( f ) {
 				setIsOverload( true )
 		}
-		System.out.println("Overloaded instance!");
+		System.out.println("Overloaded instance");
 end
 
 rule "CheckUnderload"
@@ -39,5 +39,5 @@ rule "CheckUnderload"
 		modify( f ) {
 				setIsUnderload( true )
 		}
-		System.out.println("Underloaded instance!");
+		System.out.println("Underloaded instance");
 end
